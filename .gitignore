@@ -1,0 +1,50 @@
+# Arquivos binários e temporários
+*.exe
+*.dcu
+*.dcp
+*.~*
+
+# Arquivos de build e cache
+*.map
+*.cfg
+*.dsk
+*.local
+*.stat
+*.identcache
+*.tvsconfig
+*.bpl
+*.obj
+*.lib
+*.res
+*.rsm
+
+# Backups da IDE
+*.#*
+*.bak
+*.old
+*.err
+
+# Logs e relatórios de erro
+*.log
+*.tds
+*.dbg
+*.stackdump
+
+# Arquivos específicos do Delphi
+*.dproj.local
+*.dproj.ini
+*.dproj.ipch
+*.groupproj.local
+*.groupproj.~*
+
+# Pastas geradas automaticamente pela IDE
+__history/
+__recovery/
+__pycache__/
+Win32/
+Debug/
+Release/
+
+# Configurações do sistema operacional
+Thumbs.db
+.DS_Store
