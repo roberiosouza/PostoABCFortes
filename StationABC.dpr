@@ -6,7 +6,9 @@ uses
   DMMain in 'src\dao\DMMain.pas' {DM: TDataModule},
   CEmployee in 'src\class\CEmployee.pas',
   UEmployee in 'src\main\forms\UEmployee.pas' {FEmployee},
-  FRRegistrations in 'src\main\frames\FRRegistrations.pas' {FRCRUD: TFrame};
+  FRRegistrations in 'src\main\frames\FRRegistrations.pas' {FRCRUD: TFrame},
+  UTank in 'src\main\forms\UTank.pas' {FTank},
+  CTank in 'src\class\CTank.pas';
 
 {$R *.res}
 
