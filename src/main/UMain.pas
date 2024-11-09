@@ -24,9 +24,9 @@ type
     StatusBar1: TStatusBar;
     procedure Sair1Click(Sender: TObject);
     procedure TimerTimer(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Funcionrios1Click(Sender: TObject);
+    procedure anques1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,7 +40,18 @@ implementation
 
 {$R *.dfm}
 
-uses DMMain, UEmployee;
+uses DMMain, UEmployee, UTank;
+
+procedure TFMain.anques1Click(Sender: TObject);
+begin
+  try
+    if (FTank = nil) then
+      FTank := TFTank.Create(Application);
+    FTank.Show;
+  except on E: Exception do
+    ShowMessage('Ocorreu um erro. ' + E.Message);
+  end;
+end;
 
 procedure TFMain.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
