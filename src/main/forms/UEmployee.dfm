@@ -6,7 +6,7 @@ object FEmployee: TFEmployee
   Caption = 'PostoABC - Cadastro Funcion'#225'rios'
   ClientHeight = 201
   ClientWidth = 879
-  Color = clBtnFace
+  Color = 15524304
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -15,30 +15,54 @@ object FEmployee: TFEmployee
   Position = poDesktopCenter
   OnClose = FormClose
   TextHeight = 15
+  object Label1: TLabel
+    Left = 40
+    Top = 40
+    Width = 49
+    Height = 21
+    Caption = 'Nome:'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object edtName: TEdit
+    Left = 40
+    Top = 61
+    Width = 785
+    Height = 29
+    CharCase = ecUpperCase
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    MaxLength = 120
+    ParentFont = False
+    TabOrder = 0
+  end
   inline FRCRUD1: TFRCRUD
-    Left = 0
-    Top = 0
-    Width = 879
-    Height = 201
-    Align = alClient
+    Left = 40
+    Top = 96
+    Width = 257
+    Height = 65
     Color = 15524304
     ParentBackground = False
     ParentColor = False
-    TabOrder = 0
-    ExplicitLeft = 11
-    ExplicitTop = -29
-    inherited Label1: TLabel
-      StyleElements = [seFont, seClient, seBorder]
-    end
-    inherited edtNameDescription: TEdit
-      MaxLength = 120
-      StyleElements = [seFont, seClient, seBorder]
-    end
+    TabOrder = 1
+    ExplicitLeft = 40
+    ExplicitTop = 96
     inherited btnSave: TBitBtn
+      Left = 3
       OnClick = FRCRUD1btnSaveClick
+      ExplicitLeft = 3
     end
     inherited btnCancel: TBitBtn
+      Left = 131
       OnClick = FRCRUD1btnCancelClick
+      ExplicitLeft = 131
     end
   end
 end

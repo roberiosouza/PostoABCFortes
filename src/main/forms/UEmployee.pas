@@ -4,10 +4,13 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FRRegistrations;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FRRegistrations, Vcl.StdCtrls,
+  Vcl.Buttons;
 
 type
   TFEmployee = class(TForm)
+    edtName: TEdit;
+    Label1: TLabel;
     FRCRUD1: TFRCRUD;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FRCRUD1btnCancelClick(Sender: TObject);
@@ -34,6 +37,7 @@ begin
   Action := caFree;
 end;
 
+
 procedure TFEmployee.FRCRUD1btnCancelClick(Sender: TObject);
 begin
   Close;
@@ -44,7 +48,7 @@ begin
   try
     // Cria o objeto a ser salvo
     DM.Employee := Employee.Create(DM.FDCon, DM.FDTransaction);
-    DM.Employee.Nome := FRCRUD1.edtNameDescription.Text;
+    DM.Employee.Nome := edtName.Text;
 
     // Executa o método para salvar e se retorno TRUE informa ao usuário sucesso
     if (DM.Employee.save(DM.Employee)) then

@@ -8,8 +8,6 @@ uses
 
 type
   TFRCRUD = class(TFrame)
-    Label1: TLabel;
-    edtNameDescription: TEdit;
     btnSave: TBitBtn;
     btnCancel: TBitBtn;
   private

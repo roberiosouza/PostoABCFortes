@@ -1,44 +1,17 @@
 object FRCRUD: TFRCRUD
   Left = 0
   Top = 0
-  Width = 868
-  Height = 230
+  Width = 257
+  Height = 65
   Color = 15524304
   ParentBackground = False
   ParentColor = False
   TabOrder = 0
-  object Label1: TLabel
-    Left = 40
-    Top = 56
-    Width = 49
-    Height = 21
-    Caption = 'Nome:'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Segoe UI Semibold'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
-  object edtNameDescription: TEdit
-    Left = 40
-    Top = 77
-    Width = 785
-    Height = 29
-    CharCase = ecUpperCase
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 0
-  end
   object btnSave: TBitBtn
-    Left = 40
-    Top = 136
+    Left = 8
+    Top = 14
     Width = 113
-    Height = 35
+    Height = 38
     Caption = 'Salvar'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -145,13 +118,13 @@ object FRCRUD: TFRCRUD
       16161616161616161617151515414141E0E0E0FFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 0
   end
   object btnCancel: TBitBtn
-    Left = 168
-    Top = 136
+    Left = 136
+    Top = 14
     Width = 113
-    Height = 35
+    Height = 38
     Caption = 'Cancelar'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -258,6 +231,6 @@ object FRCRUD: TFRCRUD
       F08188EB6B75E55460E35460E36B75E58188EBA3A9F0D3D6F8F8F8FDFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 1
   end
 end
