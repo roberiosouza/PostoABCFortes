@@ -2,13 +2,13 @@ program StationABC;
 
 uses
   Vcl.Forms,
-  UMain in 'src\main\UMain.pas' {Form1};
+  UMain in 'src\main\UMain.pas' {FMain};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TFMain, FMain);
   Application.Run;
 end.
