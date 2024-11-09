@@ -4,6 +4,9 @@
 *.dcp
 *.~*
 
+# Arquivos de banco de dados
+.fdb
+
 # Arquivos de build e cache
 *.map
 *.cfg
