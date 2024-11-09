@@ -24,6 +24,9 @@ type
     StatusBar1: TStatusBar;
     procedure Sair1Click(Sender: TObject);
     procedure TimerTimer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Funcionrios1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,6 +39,24 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DMMain, UEmployee;
+
+procedure TFMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+end;
+
+procedure TFMain.Funcionrios1Click(Sender: TObject);
+begin
+  try
+    if (FEmployee = nil) then
+      FEmployee := TFEmployee.Create(Application);
+    FEmployee.Show;
+  except on E: Exception do
+    ShowMessage('Ocorreu um erro. ' + E.Message);
+  end;
+end;
 
 procedure TFMain.Sair1Click(Sender: TObject);
 begin
