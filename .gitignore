@@ -5,7 +5,7 @@
 *.~*
 
 # Arquivos de banco de dados
-.fdb
+*.fdb
 
 # Arquivos de build e cache
 *.map
