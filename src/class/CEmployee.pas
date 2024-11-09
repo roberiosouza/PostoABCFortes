@@ -52,10 +52,10 @@ end;
 procedure Employee.inactive(id: Integer);
 begin
   try
-    FConnection.StartTransaction;
-
     FConnection.Connected := False;
     FConnection.Connected := True;
+
+    FConnection.StartTransaction;
 
     FConnection.ExecSQL('UPDATE TBFUNCIONARIO set STATUS = '+QuotedStr('N')+' where id = :id', [id]);
 
