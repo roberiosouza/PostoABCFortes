@@ -19,7 +19,7 @@ type
 
     public
       constructor Create(Connection : TFDConnection; Transction: TFDTransaction); overload;
-      constructor Create(AOwner: TComponent); overload;
+      constructor Create(); overload;
 
       destructor Destroy; Override;
 
@@ -56,7 +56,7 @@ begin
   QueryListAll.Connection := FConnection;
 end;
 
-constructor Tank.Create(AOwner: TComponent);
+constructor Tank.Create();
 begin
   inherited Create;
 end;
