@@ -3,7 +3,7 @@ object FEmployee: TFEmployee
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'PostoABC - Cadastro Funcion'#225'rios'
+  Caption = 'PostoABC - Cadastro de Funcion'#225'rios'
   ClientHeight = 201
   ClientWidth = 879
   Color = 15524304

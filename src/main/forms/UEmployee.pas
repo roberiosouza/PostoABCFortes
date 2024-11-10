@@ -51,7 +51,7 @@ begin
     DM.Employee.Nome := edtName.Text;
 
     // Executa o método para salvar e se retorno TRUE informa ao usuário sucesso
-    if (DM.Employee.save(DM.Employee)) then
+    if (DM.Employee.Save(DM.Employee)) then
       Application.MessageBox('Funcionário salvo com sucesso!', 'Aviso', MB_ICONINFORMATION+MB_OK);
   finally
     Close;

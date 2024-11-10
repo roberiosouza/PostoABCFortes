@@ -3,7 +3,7 @@ object FTank: TFTank
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'PostoABC - Cadastro Tanques'
+  Caption = 'PostoABC - Cadastro de Tanques'
   ClientHeight = 188
   ClientWidth = 872
   Color = 15524304
