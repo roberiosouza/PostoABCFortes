@@ -27,6 +27,8 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Funcionrios1Click(Sender: TObject);
     procedure anques1Click(Sender: TObject);
+    procedure Bomba1Click(Sender: TObject);
+    procedure Configurao1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,7 +42,7 @@ implementation
 
 {$R *.dfm}
 
-uses DMMain, UEmployee, UTank;
+uses DMMain, UEmployee, UTank, UPump, UConfig;
 
 procedure TFMain.anques1Click(Sender: TObject);
 begin
@@ -51,6 +53,24 @@ begin
   except on E: Exception do
     ShowMessage('Ocorreu um erro. ' + E.Message);
   end;
+end;
+
+procedure TFMain.Bomba1Click(Sender: TObject);
+begin
+  try
+    if (FPump = nil) then
+      FPump := TFPump.Create(Application);
+    FPump.Show;
+  except on E: Exception do
+    ShowMessage('Ocorreu um erro. ' + E.Message);
+  end;
+end;
+
+procedure TFMain.Configurao1Click(Sender: TObject);
+begin
+  if (FConfig = nil) then
+    FConfig := TFConfig.Create(Application);
+  FConfig.Show;
 end;
 
 procedure TFMain.FormClose(Sender: TObject; var Action: TCloseAction);
