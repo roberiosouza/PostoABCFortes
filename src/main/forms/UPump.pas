@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FRRegistrations, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FRRegistrations, Vcl.StdCtrls, UUtils, RTTI.NotEmpty;
 
 type
   TFPump = class(TForm)
@@ -12,8 +12,14 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+
+    [NotEmpty]
     edtNumber: TEdit;
+
+    [NotEmpty]
     cbTank: TComboBox;
+
+    [NotEmpty]
     edtPriceLiters: TEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FRCRUD1btnCancelClick(Sender: TObject);
@@ -71,19 +77,29 @@ begin
 end;
 
 procedure TFPump.FRCRUD1btnSaveClick(Sender: TObject);
+var
+  VUtils: Utils;
 begin
   try
-    // Cria o objeto a ser salvo
-    DM.Pump := Pump.Create(DM.FDCon, DM.FDTransaction);
-    DM.Pump.Numero := edtNumber.Text;
-    DM.Pump.Tanque := 1;  // Ajustar Combobox
-    DM.Pump.PrecoLitro := StrToFloat(edtPriceLiters.Text);  //Usar um helper aqui
+    VUtils := Utils.Create;
+    if (VUtils.validate(TFPump, Self)) then
+    begin
+      try
+        // Cria o objeto a ser salvo
+        DM.Pump := Pump.Create(DM.FDCon, DM.FDTransaction);
+        DM.Pump.Numero := edtNumber.Text;
+        DM.Pump.Tanque := 1;  // Ajustar Combobox
+        DM.Pump.PrecoLitro := StrToFloat(edtPriceLiters.Text);  //Usar um helper aqui
 
-    // Executa o método para salvar e se retorno TRUE informa ao usuário sucesso
-    if (DM.Pump.Save(DM.Pump)) then
-      Application.MessageBox('Bomba salva com sucesso!', 'Aviso', MB_ICONINFORMATION+MB_OK);
+        // Executa o método para salvar e se retorno TRUE informa ao usuário sucesso
+        if (DM.Pump.Save(DM.Pump)) then
+          Application.MessageBox('Bomba salva com sucesso!', 'Aviso', MB_ICONINFORMATION+MB_OK);
+      finally
+        Close;
+      end;
+    end;
   finally
-    Close;
+    VUtils.Free;
   end;
 end;
 

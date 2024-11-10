@@ -167,6 +167,9 @@
             <Form>FRSupply</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\class\rtti\RTTI.NotEmpty.pas"/>
+        <DCCReference Include="src\class\rtti\RTTI.Components.pas"/>
+        <DCCReference Include="src\utils\UUtils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

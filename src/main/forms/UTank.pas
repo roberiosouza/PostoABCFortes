@@ -5,16 +5,24 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FRRegistrations, Vcl.StdCtrls,
-  Vcl.Buttons, DMMain;
+  Vcl.Buttons, DMMain, UUtils, RTTI.NotEmpty;
 
 type
   TFTank = class(TForm)
+    [NotEmpty]
     edtNumber: TEdit;
+
     Label1: TLabel;
     FRCRUD1: TFRCRUD;
+
+    [NotEmpty]
     cbTypeFuel: TComboBox;
+
     Label2: TLabel;
+
+    [NotEmpty]
     edtQuantLiters: TEdit;
+
     Label3: TLabel;
     procedure FRCRUD1btnCancelClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -47,19 +55,29 @@ begin
 end;
 
 procedure TFTank.FRCRUD1btnSaveClick(Sender: TObject);
+var
+  VUtils: Utils;
 begin
   try
-    // Cria o objeto a ser salvo
-    DM.Tank := Tank.Create(DM.FDCon, DM.FDTransaction);
-    DM.Tank.Numero := edtNumber.Text;
-    DM.Tank.TipoCombustivel := cbTypeFuel.Text;
-    DM.Tank.CapacidadeLitros := StrToFloat(edtQuantLiters.Text);  //Usar um helper aqui
+    VUtils := Utils.Create;
+    if (VUtils.validate(TFTank, Self)) then
+    begin
+      try
+        // Cria o objeto a ser salvo
+        DM.Tank := Tank.Create(DM.FDCon, DM.FDTransaction);
+        DM.Tank.Numero := edtNumber.Text;
+        DM.Tank.TipoCombustivel := cbTypeFuel.Text;
+        DM.Tank.CapacidadeLitros := StrToFloat(edtQuantLiters.Text);  //Usar um helper aqui
 
-    // Executa o método para salvar e se retorno TRUE informa ao usuário sucesso
-    if (DM.Tank.Save(DM.Tank)) then
-      Application.MessageBox('Tanque salvo com sucesso!', 'Aviso', MB_ICONINFORMATION+MB_OK);
+        // Executa o método para salvar e se retorno TRUE informa ao usuário sucesso
+        if (DM.Tank.Save(DM.Tank)) then
+          Application.MessageBox('Tanque salvo com sucesso!', 'Aviso', MB_ICONINFORMATION+MB_OK);
+      finally
+        Close;
+      end;
+    end;
   finally
-    Close;
+    VUtils.Free;
   end;
 end;
 

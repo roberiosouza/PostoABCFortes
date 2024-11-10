@@ -15,7 +15,10 @@ uses
   CConfig in 'src\class\CConfig.pas',
   USupply in 'src\main\forms\USupply.pas' {FSupply},
   CSupply in 'src\class\CSupply.pas',
-  URSupply in 'src\reports\URSupply.pas' {FRSupply};
+  URSupply in 'src\reports\URSupply.pas' {FRSupply},
+  RTTI.NotEmpty in 'src\class\rtti\RTTI.NotEmpty.pas',
+  RTTI.Components in 'src\class\rtti\RTTI.Components.pas',
+  UUtils in 'src\utils\UUtils.pas';
 
 {$R *.res}
 
