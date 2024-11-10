@@ -12,7 +12,9 @@ uses
   UPump in 'src\main\forms\UPump.pas' {FPump},
   CPump in 'src\class\CPump.pas',
   UConfig in 'src\main\forms\UConfig.pas' {FConfig},
-  CConfig in 'src\class\CConfig.pas';
+  CConfig in 'src\class\CConfig.pas',
+  USupply in 'src\main\forms\USupply.pas' {FSupply},
+  CSupply in 'src\class\CSupply.pas';
 
 {$R *.res}
 
