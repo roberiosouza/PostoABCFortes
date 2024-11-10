@@ -53,6 +53,8 @@ begin
     SetLength(ListTanks, Length(VTank.ListAll));
     ListTanks := VTank.ListAll;
 
+    cbTank.Items.Clear;
+
     for I:= 0 to Length(ListTanks)-1 do
     begin
       cbTank.Items.Add(ListTanks[I].Numero);
