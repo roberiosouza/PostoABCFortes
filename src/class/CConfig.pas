@@ -16,7 +16,7 @@ type
 
   public
     constructor Create(Connection : TFDConnection; Transction: TFDTransaction); overload;
-    constructor Create(AOwner: TComponent); overload;
+    constructor Create(); overload;
 
     destructor Destroy; Override;
 
@@ -27,6 +27,7 @@ type
 
     function SaveUpdate(config: Config): Boolean;
     function PercConfigurated(): Boolean;
+    function PecentCurrent(): Real;
   end;
 
 implementation
@@ -49,7 +50,7 @@ begin
   QueryConfig.Connection := FConnection;
 end;
 
-constructor Config.Create(AOwner: TComponent);
+constructor Config.Create();
 begin
   inherited Create;
 end;
@@ -59,6 +60,29 @@ begin
 
   QueryConfig.Destroy;
   inherited;
+end;
+
+function Config.PecentCurrent: Real;
+begin
+  try
+    Result := 0;
+
+    FConnection.Connected := False;
+    FConnection.Connected := True;
+
+    QueryConfig.Close;
+    QueryConfig.SQL.Clear;
+    QueryConfig.SQL.Add('SELECT FIRST 1 ID, PERC_IMPOSTO FROM TBCONFIG');
+    QueryConfig.Open;
+
+    if (QueryConfig.RowsAffected > 0) then
+      Result := QueryConfig.FieldByName('PERC_IMPOSTO').AsFloat;
+  except on e: Exception do
+    begin
+      Result := 0;
+      Showmessage('Ocorreu um erro: ' + e.Message);
+    end;
+  end;
 end;
 
 function Config.PercConfigurated: Boolean;
@@ -106,7 +130,7 @@ begin
     begin
       FConnection.Rollback;
       Result := False;
-      showmessage('Ocorreu um erro: ' + e.Message);
+      Showmessage('Ocorreu um erro: ' + e.Message);
     end;
   end;
 end;
