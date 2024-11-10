@@ -26,6 +26,7 @@ object DM: TDM
       '       ab.id as cod_abastecimento,'
       '       ab.data_abastecimento,'
       '       f.nome as frentista,'
+      '       t.tipo_combustivel,'
       '       b.numero as bomba_numero,'
       '       ab.quant_total_litros,'
       '       ((ab.perc_imposto/100) * ab.rs_total_bruto) as imposto,'
@@ -35,8 +36,9 @@ object DM: TDM
       ' from TBABASTECIMENTO as ab'
       ' join TBFUNCIONARIO as f on (f.id = ab.frentista_id)'
       ' join TBBOMBA as b on (b.id = ab.bomba_id)'
+      ' join TBTANQUE as t on (t.id = b.tanque_id)'
       ' where ab.status = '#39'S'#39
-      ' order by ab.data_abastecimento, f.nome desc')
+      ' order by ab.data_abastecimento, t.tipo_combustivel, f.nome desc')
     Left = 64
     Top = 136
     object QueryRelAbastecimentoCOD_ABASTECIMENTO: TIntegerField
@@ -95,6 +97,14 @@ object DM: TDM
       DisplayFormat = '#,#0.00'
       Precision = 18
       Size = 2
+    end
+    object QueryRelAbastecimentoTIPO_COMBUSTIVEL: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'TIPO_COMBUSTIVEL'
+      Origin = 'TIPO_COMBUSTIVEL'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 30
     end
   end
   object DSRelAbastecimento: TDataSource

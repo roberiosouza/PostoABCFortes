@@ -99,7 +99,7 @@ object FRSupply: TFRSupply
       Left = 38
       Top = 115
       Width = 718
-      Height = 96
+      Height = 120
       DataFields = 'DATA_ABASTECIMENTO'
       object BHGroup: TRLBand
         Left = 0
@@ -135,166 +135,201 @@ object FRSupply: TFRSupply
           Transparent = False
         end
       end
-      object BTHeader: TRLBand
+      object BGroupFuel: TRLGroup
         Left = 0
         Top = 33
         Width = 718
-        Height = 26
-        BandType = btColumnHeader
-        object RLLabel4: TRLLabel
-          Left = 16
-          Top = 6
-          Width = 59
-          Height = 16
-          Caption = 'Frentista'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          ParentFont = False
-          Transparent = False
+        Height = 80
+        DataFields = 'TIPO_COMBUSTIVEL'
+        object BDetail: TRLBand
+          Left = 0
+          Top = 50
+          Width = 718
+          Height = 23
+          object RLDBText2: TRLDBText
+            Left = 16
+            Top = 3
+            Width = 177
+            Height = 16
+            DataField = 'FRENTISTA'
+            DataSource = DM.DSRelAbastecimento
+            Text = ''
+          end
+          object RLDBText3: TRLDBText
+            Left = 200
+            Top = 2
+            Width = 116
+            Height = 16
+            DataField = 'BOMBA_NUMERO'
+            DataSource = DM.DSRelAbastecimento
+            Text = ''
+          end
+          object RLDBText4: TRLDBText
+            Left = 322
+            Top = 2
+            Width = 87
+            Height = 16
+            Alignment = taCenter
+            DataField = 'QUANT_TOTAL_LITROS'
+            DataSource = DM.DSRelAbastecimento
+            Text = ''
+          end
+          object RLDBText5: TRLDBText
+            Left = 422
+            Top = 3
+            Width = 94
+            Height = 16
+            Alignment = taRightJustify
+            DataField = 'RS_TOTAL_BRUTO'
+            DataSource = DM.DSRelAbastecimento
+            Text = ''
+          end
+          object RLDBText6: TRLDBText
+            Left = 607
+            Top = 2
+            Width = 110
+            Height = 16
+            Alignment = taRightJustify
+            DataField = 'RS_TOTAL_LIQUIDO'
+            DataSource = DM.DSRelAbastecimento
+            Text = ''
+          end
+          object RLDBText7: TRLDBText
+            Left = 530
+            Top = 2
+            Width = 63
+            Height = 16
+            Alignment = taCenter
+            DataField = 'IMPOSTO'
+            DataSource = DM.DSRelAbastecimento
+            DisplayMask = '#,##0.00'
+            Text = ''
+          end
         end
-        object RLLabel5: TRLLabel
-          Left = 200
-          Top = 6
-          Width = 49
-          Height = 16
-          Caption = 'Bomba'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          ParentFont = False
-          Transparent = False
-        end
-        object RLLabel6: TRLLabel
-          Left = 330
-          Top = 6
-          Width = 70
-          Height = 16
-          Caption = 'Quant. (Lt)'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          ParentFont = False
-          Transparent = False
-        end
-        object RLLabel7: TRLLabel
-          Left = 422
-          Top = 6
-          Width = 94
-          Height = 16
-          Caption = 'Total Bruto R$'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          ParentFont = False
-          Transparent = False
-        end
-        object RLLabel8: TRLLabel
-          Left = 607
-          Top = 6
-          Width = 108
-          Height = 16
-          Caption = 'Total L'#237'quido R$'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          ParentFont = False
-          Transparent = False
-        end
-        object RLLabel11: TRLLabel
-          Left = 524
-          Top = 6
-          Width = 74
-          Height = 16
-          Caption = 'Imposto R$'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          ParentFont = False
-          Transparent = False
-        end
-      end
-      object RLBand1: TRLBand
-        Left = 0
-        Top = 59
-        Width = 718
-        Height = 22
-        object RLDBText2: TRLDBText
-          Left = 16
-          Top = 3
-          Width = 177
-          Height = 16
-          DataField = 'FRENTISTA'
-          DataSource = DM.DSRelAbastecimento
-          Text = ''
-        end
-        object RLDBText3: TRLDBText
-          Left = 200
-          Top = 2
-          Width = 116
-          Height = 16
-          DataField = 'BOMBA_NUMERO'
-          DataSource = DM.DSRelAbastecimento
-          Text = ''
-        end
-        object RLDBText4: TRLDBText
-          Left = 322
-          Top = 2
-          Width = 87
-          Height = 16
-          Alignment = taCenter
-          DataField = 'QUANT_TOTAL_LITROS'
-          DataSource = DM.DSRelAbastecimento
-          Text = ''
-        end
-        object RLDBText5: TRLDBText
-          Left = 422
-          Top = 3
-          Width = 94
-          Height = 16
-          Alignment = taRightJustify
-          DataField = 'RS_TOTAL_BRUTO'
-          DataSource = DM.DSRelAbastecimento
-          Text = ''
-        end
-        object RLDBText6: TRLDBText
-          Left = 607
-          Top = 2
-          Width = 110
-          Height = 16
-          Alignment = taRightJustify
-          DataField = 'RS_TOTAL_LIQUIDO'
-          DataSource = DM.DSRelAbastecimento
-          Text = ''
-        end
-        object RLDBText7: TRLDBText
-          Left = 530
-          Top = 2
-          Width = 63
-          Height = 16
-          Alignment = taCenter
-          DataField = 'IMPOSTO'
-          DataSource = DM.DSRelAbastecimento
-          DisplayMask = '#,##0.00'
-          Text = ''
+        object BTHeader: TRLBand
+          Left = 0
+          Top = 0
+          Width = 718
+          Height = 50
+          BandType = btColumnHeader
+          Borders.Sides = sdCustom
+          Borders.DrawLeft = False
+          Borders.DrawTop = False
+          Borders.DrawRight = False
+          Borders.DrawBottom = True
+          object RLLabel4: TRLLabel
+            Left = 16
+            Top = 30
+            Width = 59
+            Height = 16
+            Caption = 'Frentista'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            Transparent = False
+          end
+          object RLLabel5: TRLLabel
+            Left = 200
+            Top = 30
+            Width = 49
+            Height = 16
+            Caption = 'Bomba'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            Transparent = False
+          end
+          object RLLabel6: TRLLabel
+            Left = 330
+            Top = 30
+            Width = 70
+            Height = 16
+            Caption = 'Quant. (Lt)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            Transparent = False
+          end
+          object RLLabel7: TRLLabel
+            Left = 422
+            Top = 30
+            Width = 94
+            Height = 16
+            Caption = 'Total Bruto R$'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            Transparent = False
+          end
+          object RLLabel8: TRLLabel
+            Left = 607
+            Top = 30
+            Width = 108
+            Height = 16
+            Caption = 'Total L'#237'quido R$'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            Transparent = False
+          end
+          object RLLabel11: TRLLabel
+            Left = 524
+            Top = 30
+            Width = 74
+            Height = 16
+            Caption = 'Imposto R$'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            Transparent = False
+          end
+          object RLLabel14: TRLLabel
+            Left = 16
+            Top = 8
+            Width = 86
+            Height = 16
+            Caption = 'Combust'#237'vel:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            Transparent = False
+          end
+          object RLDBText8: TRLDBText
+            Left = 108
+            Top = 8
+            Width = 141
+            Height = 16
+            DataField = 'TIPO_COMBUSTIVEL'
+            DataSource = DM.DSRelAbastecimento
+            Text = ''
+          end
         end
       end
     end
     object BFooter: TRLBand
       Left = 38
-      Top = 329
+      Top = 353
       Width = 718
       Height = 32
       BandType = btFooter
@@ -306,7 +341,7 @@ object FRSupply: TFRSupply
     end
     object BSumary: TRLBand
       Left = 38
-      Top = 211
+      Top = 235
       Width = 718
       Height = 118
       BandType = btSummary

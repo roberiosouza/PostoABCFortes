@@ -25,7 +25,7 @@ type
     RLLabel6: TRLLabel;
     RLLabel7: TRLLabel;
     RLLabel8: TRLLabel;
-    RLBand1: TRLBand;
+    BDetail: TRLBand;
     RLDBText2: TRLDBText;
     RLDBText3: TRLDBText;
     RLDBText4: TRLDBText;
@@ -43,6 +43,9 @@ type
     RLDBResult2: TRLDBResult;
     RLLabel13: TRLLabel;
     RLDBResult3: TRLDBResult;
+    BGroupFuel: TRLGroup;
+    RLLabel14: TRLLabel;
+    RLDBText8: TRLDBText;
   private
     { Private declarations }
   public

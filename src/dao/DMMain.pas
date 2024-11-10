@@ -24,6 +24,7 @@ type
     DSRelAbastecimento: TDataSource;
     QueryRelAbastecimentoIMPOSTO: TBCDField;
     QueryRelAbastecimentoRS_TOTAL_LIQUIDO: TFMTBCDField;
+    QueryRelAbastecimentoTIPO_COMBUSTIVEL: TStringField;
   private
     { Private declarations }
   public
