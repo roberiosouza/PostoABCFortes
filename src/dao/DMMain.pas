@@ -7,7 +7,7 @@ uses
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
   FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client, CEmployee,
-  CTank, CPump, CConfig;
+  CTank, CPump, CConfig, CSupply;
 
 type
   TDM = class(TDataModule)
@@ -21,6 +21,7 @@ type
     Tank : Tank;
     Pump: Pump;
     Config: Config;
+    Supply: Supply;
   end;
 
 var

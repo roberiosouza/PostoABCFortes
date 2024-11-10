@@ -29,6 +29,7 @@ type
     procedure anques1Click(Sender: TObject);
     procedure Bomba1Click(Sender: TObject);
     procedure Configurao1Click(Sender: TObject);
+    procedure Abastecimento1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,7 +43,18 @@ implementation
 
 {$R *.dfm}
 
-uses DMMain, UEmployee, UTank, UPump, UConfig;
+uses DMMain, UEmployee, UTank, UPump, UConfig, USupply;
+
+procedure TFMain.Abastecimento1Click(Sender: TObject);
+begin
+  try
+    if (FSupply = nil) then
+      FSupply := TFSupply.Create(Application);
+    FSupply.Show;
+  except on E: Exception do
+    ShowMessage('Ocorreu um erro. ' + E.Message);
+  end;
+end;
 
 procedure TFMain.anques1Click(Sender: TObject);
 begin
@@ -68,9 +80,13 @@ end;
 
 procedure TFMain.Configurao1Click(Sender: TObject);
 begin
-  if (FConfig = nil) then
-    FConfig := TFConfig.Create(Application);
-  FConfig.Show;
+  try
+    if (FConfig = nil) then
+      FConfig := TFConfig.Create(Application);
+    FConfig.Show;
+  except on E: Exception do
+    ShowMessage('Ocorreu um erro. ' + E.Message);
+  end;
 end;
 
 procedure TFMain.FormClose(Sender: TObject; var Action: TCloseAction);
