@@ -8,7 +8,11 @@ uses
   UEmployee in 'src\main\forms\UEmployee.pas' {FEmployee},
   FRRegistrations in 'src\main\frames\FRRegistrations.pas' {FRCRUD: TFrame},
   UTank in 'src\main\forms\UTank.pas' {FTank},
-  CTank in 'src\class\CTank.pas';
+  CTank in 'src\class\CTank.pas',
+  UPump in 'src\main\forms\UPump.pas' {FPump},
+  CPump in 'src\class\CPump.pas',
+  UConfig in 'src\main\forms\UConfig.pas' {FConfig},
+  CConfig in 'src\class\CConfig.pas';
 
 {$R *.res}
 

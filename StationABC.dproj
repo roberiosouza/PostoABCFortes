@@ -149,6 +149,16 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\class\CTank.pas"/>
+        <DCCReference Include="src\main\forms\UPump.pas">
+            <Form>FPump</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\class\CPump.pas"/>
+        <DCCReference Include="src\main\forms\UConfig.pas">
+            <Form>FConfig</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\class\CConfig.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
