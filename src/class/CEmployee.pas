@@ -49,7 +49,7 @@ begin
   inherited;
 end;
 
-procedure Employee.inactive(id: Integer);
+procedure Employee.Inactive(id: Integer);
 begin
   try
     FConnection.Connected := False;
@@ -68,7 +68,7 @@ begin
   end;
 end;
 
-function Employee.save(employee: Employee): Boolean;
+function Employee.Save(employee: Employee): Boolean;
 begin
   try
     FConnection.Connected := False;
