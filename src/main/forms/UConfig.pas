@@ -14,6 +14,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FRCRUD1btnCancelClick(Sender: TObject);
     procedure FRCRUD1btnSaveClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,6 +35,19 @@ procedure TFConfig.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   FConfig := nil;
   Action := caFree;
+end;
+
+procedure TFConfig.FormCreate(Sender: TObject);
+var
+  VConfig: Config;
+begin
+  try
+    VConfig := Config.Create(DM.FDCon, DM.FDTransaction);
+
+    edtPercImpost.Text := FloatToStr(VConfig.PecentCurrent());     // Adicionar um Helper No Panel
+  finally
+    FreeAndNil(VConfig);
+  end;
 end;
 
 procedure TFConfig.FRCRUD1btnCancelClick(Sender: TObject);

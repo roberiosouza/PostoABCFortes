@@ -14,6 +14,7 @@ object FConfig: TFConfig
   Font.Style = []
   Position = poDesktopCenter
   OnClose = FormClose
+  OnCreate = FormCreate
   TextHeight = 15
   object Label1: TLabel
     Left = 52
