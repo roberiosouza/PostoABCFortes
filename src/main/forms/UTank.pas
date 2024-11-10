@@ -56,7 +56,7 @@ begin
     DM.Tank.CapacidadeLitros := StrToFloat(edtQuantLiters.Text);  //Usar um helper aqui
 
     // Executa o método para salvar e se retorno TRUE informa ao usuário sucesso
-    if (DM.Tank.save(DM.Tank)) then
+    if (DM.Tank.Save(DM.Tank)) then
       Application.MessageBox('Tanque salvo com sucesso!', 'Aviso', MB_ICONINFORMATION+MB_OK);
   finally
     Close;
