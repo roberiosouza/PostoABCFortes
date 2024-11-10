@@ -38,6 +38,7 @@ type
     property RSTotalLiquido: Real read FRSTotalLiquido write FRSTotalLiquido;
     property Status: Char read FStatus write FStatus;
 
+    procedure RelSupply(Query: TFDQuery);
     function Save(ASupply: Supply): Boolean;
   end;
 
@@ -70,6 +71,19 @@ destructor Supply.Destroy;
 begin
   QuerySupply.Destroy;
   inherited;
+end;
+
+procedure Supply.RelSupply(Query: TFDQuery);
+begin
+  try
+    FConnection.Connected := False;
+    FConnection.Connected := True;
+
+    Query.Close;
+    Query.Open;
+  except on e: Exception do
+    Showmessage('Ocorreu um erro: ' + e.Message);
+  end;
 end;
 
 function Supply.Save(ASupply: Supply): Boolean;

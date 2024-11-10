@@ -22,6 +22,8 @@ type
     lblUsuario: TLabel;
     Timer: TTimer;
     StatusBar1: TStatusBar;
+    Relatrios1: TMenuItem;
+    Abastecimento2: TMenuItem;
     procedure Sair1Click(Sender: TObject);
     procedure TimerTimer(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -30,6 +32,7 @@ type
     procedure Bomba1Click(Sender: TObject);
     procedure Configurao1Click(Sender: TObject);
     procedure Abastecimento1Click(Sender: TObject);
+    procedure Abastecimento2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,7 +46,7 @@ implementation
 
 {$R *.dfm}
 
-uses DMMain, UEmployee, UTank, UPump, UConfig, USupply;
+uses DMMain, UEmployee, UTank, UPump, UConfig, USupply, URSupply, CSupply;
 
 procedure TFMain.Abastecimento1Click(Sender: TObject);
 begin
@@ -54,6 +57,16 @@ begin
   except on E: Exception do
     ShowMessage('Ocorreu um erro. ' + E.Message);
   end;
+end;
+
+procedure TFMain.Abastecimento2Click(Sender: TObject);
+begin
+  FRSupply := TFRSupply.Create(Application);
+
+  DM.Supply := Supply.Create(DM.FDCon, DM.FDTransaction);
+  DM.Supply.RelSupply(DM.QueryRelAbastecimento);
+
+  FRSupply.RSupply.Preview();
 end;
 
 procedure TFMain.anques1Click(Sender: TObject);

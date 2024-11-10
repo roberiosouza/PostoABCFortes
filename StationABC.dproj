@@ -163,6 +163,10 @@
             <Form>FSupply</Form>
         </DCCReference>
         <DCCReference Include="src\class\CSupply.pas"/>
+        <DCCReference Include="src\reports\URSupply.pas">
+            <Form>FRSupply</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
