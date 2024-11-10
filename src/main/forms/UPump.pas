@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FRRegistrations, Vcl.StdCtrls, UUtils, RTTI.NotEmpty;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FRRegistrations, Vcl.StdCtrls, UUtils, RTTI.NotEmpty,
+  Helper.Edits, Helper.Combobox;
 
 type
   TFPump = class(TForm)
@@ -63,7 +64,7 @@ begin
 
     for I:= 0 to Length(ListTanks)-1 do
     begin
-      cbTank.Items.Add(ListTanks[I].Numero);
+      cbTank.Items.Add(ListTanks[I].Id.ToString+' - '+ListTanks[I].Numero);
     end;
 
   finally
@@ -88,8 +89,8 @@ begin
         // Cria o objeto a ser salvo
         DM.Pump := Pump.Create(DM.FDCon, DM.FDTransaction);
         DM.Pump.Numero := edtNumber.Text;
-        DM.Pump.Tanque := 1;  // Ajustar Combobox
-        DM.Pump.PrecoLitro := StrToFloat(edtPriceLiters.Text);  //Usar um helper aqui
+        DM.Pump.Tanque := cbTank.RemovePrefixTank;  // Ajustar Combobox
+        DM.Pump.PrecoLitro := StrToFloat(edtPriceLiters.RemovePoint);  //Usar um helper aqui
 
         // Executa o método para salvar e se retorno TRUE informa ao usuário sucesso
         if (DM.Pump.Save(DM.Pump)) then

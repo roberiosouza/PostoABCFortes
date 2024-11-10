@@ -170,6 +170,8 @@
         <DCCReference Include="src\class\rtti\RTTI.NotEmpty.pas"/>
         <DCCReference Include="src\class\rtti\RTTI.Components.pas"/>
         <DCCReference Include="src\utils\UUtils.pas"/>
+        <DCCReference Include="src\utils\Helper.Edits.pas"/>
+        <DCCReference Include="src\utils\Helper.Combobox.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

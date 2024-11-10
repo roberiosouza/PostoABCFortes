@@ -18,7 +18,9 @@ uses
   URSupply in 'src\reports\URSupply.pas' {FRSupply},
   RTTI.NotEmpty in 'src\class\rtti\RTTI.NotEmpty.pas',
   RTTI.Components in 'src\class\rtti\RTTI.Components.pas',
-  UUtils in 'src\utils\UUtils.pas';
+  UUtils in 'src\utils\UUtils.pas',
+  Helper.Edits in 'src\utils\Helper.Edits.pas',
+  Helper.Combobox in 'src\utils\Helper.Combobox.pas';
 
 {$R *.res}
 

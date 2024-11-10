@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FRRegistrations, Vcl.StdCtrls,
-  Vcl.Buttons, DMMain, UUtils, RTTI.NotEmpty;
+  Vcl.Buttons, DMMain, UUtils, RTTI.NotEmpty, Helper.Edits;
 
 type
   TFTank = class(TForm)
@@ -65,9 +65,9 @@ begin
       try
         // Cria o objeto a ser salvo
         DM.Tank := Tank.Create(DM.FDCon, DM.FDTransaction);
-        DM.Tank.Numero := edtNumber.Text;
+        DM.Tank.Numero := edtNumber.AddPrefixTank;
         DM.Tank.TipoCombustivel := cbTypeFuel.Text;
-        DM.Tank.CapacidadeLitros := StrToFloat(edtQuantLiters.Text);  //Usar um helper aqui
+        DM.Tank.CapacidadeLitros := StrToFloat(edtQuantLiters.RemovePoint);
 
         // Executa o método para salvar e se retorno TRUE informa ao usuário sucesso
         if (DM.Tank.Save(DM.Tank)) then
