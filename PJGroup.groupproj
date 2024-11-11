@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{855E5799-55C3-4AAA-BE66-349E18F2E699}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="StationABC.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="tests\StationABCTest.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="StationABC">
+        <MSBuild Projects="StationABC.dproj"/>
+    </Target>
+    <Target Name="StationABC:Clean">
+        <MSBuild Projects="StationABC.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StationABC:Make">
+        <MSBuild Projects="StationABC.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="StationABCTest">
+        <MSBuild Projects="tests\StationABCTest.dproj"/>
+    </Target>
+    <Target Name="StationABCTest:Clean">
+        <MSBuild Projects="tests\StationABCTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StationABCTest:Make">
+        <MSBuild Projects="tests\StationABCTest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="StationABC;StationABCTest"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="StationABC:Clean;StationABCTest:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="StationABC:Make;StationABCTest:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
