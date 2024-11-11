@@ -39,6 +39,7 @@ type
     property Status: Char read FStatus write FStatus;
 
     procedure RelSupply(Query: TFDQuery);
+    function VerifyImpostHighestEqualsZero(Impost: Real): Boolean;
     function Save(ASupply: Supply): Boolean;
   end;
 
@@ -117,6 +118,14 @@ begin
       Showmessage('Ocorreu um erro: ' + e.Message);
     end;
   end;
+end;
+
+function Supply.VerifyImpostHighestEqualsZero(Impost: Real): Boolean;
+begin
+  if (Impost >= 0) then
+    Result := True
+  else
+    Result := False;
 end;
 
 end.
